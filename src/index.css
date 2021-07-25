@@ -20,7 +20,7 @@ body {
 
 	&__item {
 		display: inline-block;
-		background: dodgerblue;
+		background: $sky-400;
 		border-radius: 10px;
 		text-decoration: none;
 		padding: 1rem;
@@ -28,9 +28,10 @@ body {
 		font-size: 1.5rem;
 		color: #ffffff;
 		transition: background color 0.3s;
+
 		&:hover {
 			color: #000;
-			background: tomato;
+			background: $orange-400;
 		}
 	}
 
@@ -39,6 +40,6 @@ body {
 	}
 
 	&--green {
-		background: lightgreen;
+		background: $green-400;
 	}
 }

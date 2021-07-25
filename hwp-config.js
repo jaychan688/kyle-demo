@@ -27,11 +27,12 @@ class RunAfterCompile {
 }
 
 // 讀取 ./src/pages 內所有的資料夾名稱
-const folders = fse.readdirSync('./src/pages')
+const demoPath = './src/pages'
+const folders = fse.readdirSync(demoPath)
 
 const generateEntries = pageArray => {
 	return pageArray.reduce((entry, folder) => {
-		entry[`${folder}/index`] = `./src/pages/${folder}/script.js`
+		entry[`${folder}/index`] = `${demoPath}/${folder}/script.js`
 		return entry
 	}, {})
 }
@@ -41,7 +42,7 @@ const generateHtmlPlugin = page => {
 	return new HtmlWebpackPlugin({
 		title: page,
 		filename: `${page.toLowerCase()}/index.html`,
-		template: `./src/pages/${page.toLowerCase()}/index.html`,
+		template: `${demoPath}/${page.toLowerCase()}/index.html`,
 		inject: true,
 		chunks: [`${page}/index`],
 	})
