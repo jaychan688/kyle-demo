@@ -2,16 +2,29 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <%= htmlWebpackPlugin.options.title %>
-  </title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simple Todo App</title>
 </head>
 
 <body>
+  <div class="todo">
+    <h3 class="todo__title">Simple To-Do Form</h3>
 
+    <form id="new-item-form">
+      <div class="form-group">
+        <label for="item-input">New Item</label>
+        <input id="item-input" type="text" autocomplete="off" />
+        <button type='submit'>Add item</button>
+      </div>
+    </form>
+
+    <h3 class="todo__title">To-Do List</h3>
+
+    <ul id="todo-list" class="todo__list">
+    </ul>
+  </div>
 </body>
 
 </html>

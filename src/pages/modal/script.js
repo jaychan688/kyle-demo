@@ -1,2 +1,2 @@
+import './js/modal'
 import './style.css'
-import './js/todo'

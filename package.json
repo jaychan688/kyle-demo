@@ -2,7 +2,6 @@
 	"name": "kyle-demo",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
 	"scripts": {
 		"start": "webpack serve",
 		"build": "cross-env NODE_ENV=production webpack"
@@ -30,7 +29,8 @@
 		"postcss-mixins": "^8.1.0",
 		"postcss-nested": "^5.0.5",
 		"postcss-preset-env": "^6.7.0",
-		"postcss-simple-vars": "^6.0.3",
+		"sass": "^1.36.0",
+		"sass-loader": "^12.1.0",
 		"style-loader": "^3.2.1",
 		"webpack": "^5.46.0",
 		"webpack-cli": "^4.7.2",
