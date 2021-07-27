@@ -1,6 +1,6 @@
 import './index.css'
 
-const components = ['todo-app', 'modal', 'playground']
+const components = ['simple-list', 'modal', 'midi-piano', 'quiz']
 
 const componentsLinks = components
 	.map(
