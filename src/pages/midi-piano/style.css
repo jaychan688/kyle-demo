@@ -3,9 +3,6 @@
 *::after {
 	box-sizing: border-box;
 }
-:root {
-	--width: 100px;
-}
 
 body {
 	background-color: #143f6b;
@@ -20,29 +17,55 @@ body {
 	display: flex;
 }
 
-.key {
-	height: calc(var(--width) * 4);
-	width: var(--width);
-}
-
 .white {
+	position: relative;
 	--width: 100px;
 	background-color: white;
 	border: 1px solid #333;
-}
+	color: #000;
+	font-size: 2rem;
+	font-weight: 700;
 
-.white.active {
-	background-color: #ccc;
+	&.active {
+		background-color: #ccc;
+	}
+
+	&.key {
+		height: calc(var(--width) * 4);
+		width: var(--width);
+	}
+
+	&--mark {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-1rem);
+	}
 }
 
 .black {
+	position: relative;
 	--width: 60px;
 	background-color: black;
 	margin-left: calc(var(--width) / -2);
 	margin-right: calc(var(--width) / -2);
 	z-index: 2;
-}
+	color: #fff;
+	font-size: 1rem;
+	font-weight: 700;
 
-.black.active {
-	background-color: #333;
+	&.active {
+		background-color: #333;
+	}
+
+	&.key {
+		height: calc(var(--width) * 4);
+		width: var(--width);
+	}
+	&--mark {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-0.3rem);
+	}
 }
