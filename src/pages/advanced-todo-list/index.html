@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>Advanced Todo List</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <ul id="list">
-    
-  </ul>
-  
-  <form id="new-todo-form">
-    <label for="todo-input">New Todo</label>
-    <input type="text" id="todo-input">
-    <button type="submit">Add Todo</button>
-  </form>
 
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced Todo List</title>
+</head>
+
+<body>
+  <div class="container">
+    <ul id="list"></ul>
+
+    <form id="new-todo-form">
+      <label for="todo-input">New Todo</label>
+      <input type="text" id="todo-input">
+      <button type="submit">Add Todo</button>
+    </form>
+  </div>
+
+  <!-- 
+    Everything inside template is not get render into the page,
+    and can be cloned later by javascript.
+  -->
   <template id="list-item-template">
     <li class="list-item">
       <label class="list-item-label">
@@ -25,4 +31,5 @@
     </li>
   </template>
 </body>
+
 </html>

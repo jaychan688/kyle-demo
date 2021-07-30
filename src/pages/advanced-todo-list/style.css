@@ -1,39 +1,64 @@
+@import '../../css/_base/_global.css';
+
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+}
+
 #new-todo-form {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 #new-todo-form > * {
-  margin: .15rem;
+	margin: 0.5rem;
 }
 
 #list {
-  padding: 0;
+	padding: 0;
 }
 
 .list-item {
-  list-style: none;
+	list-style: none;
+	padding-bottom: 1rem;
+	display: flex;
+	justify-content: space-between;
+	font-size: 2rem;
 }
 
 .list-item-label:hover,
 [data-list-item-checkbox]:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .list-item-label:hover > [data-list-item-text] {
-  color: #333;
-  text-decoration: line-through;
+	color: #333;
+	text-decoration: line-through;
 }
 
 [data-list-item-checkbox]:checked ~ [data-list-item-text] {
-  text-decoration: line-through;
-  color: #AAA;
+	text-decoration: line-through;
+	color: #aaa;
 }
 
 [data-button-delete] {
-  margin-left: .5rem;
+	margin-left: 0.5rem;
 }
 
-button {
-  cursor: pointer;
+button[type='submit'] {
+	cursor: pointer;
+	font-size: 2rem;
+	border-radius: 1rem;
+	outline: 0;
+	border: 0;
+	padding: 1rem;
+	background-color: var(--color-primary);
+	&:hover {
+		background-color: color(var(--color-primary) tint(20%));
+	}
+}
+
+input {
+	font-size: 2.2rem;
+	padding: 0.5rem 0.2rem;
 }
