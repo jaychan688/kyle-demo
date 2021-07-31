@@ -6,6 +6,10 @@ const components = [
 	'modal',
 	'midi-piano',
 	'quiz',
+	'collapse-expand',
+	'collapsible-mosh',
+	'shopping-cart',
+	'date-picker',
 ]
 
 const componentsLinks = components

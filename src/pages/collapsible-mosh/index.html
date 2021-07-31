@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>collapsible</title>
+</head>
+
+<body>
+
+	<div class="wrapper wrapper--narrow">
+		<!-- Has collapsible--expanded class: show the content -->
+		<div class="collapsible collapsible--expanded">
+			<header class="collapsible__header">
+				<h2 class="collapsible__heading">Show the content</h2>
+				<svg class="icon icon--white collapsible__toggler">
+					<use xlink:href="../images/sprite.svg#chevron"></use>
+				</svg>
+			</header>
+			<div class="collapsible__content">
+				For example you might have a component that relies on Windows or Linux system calls, so it can be helpful to
+				separate them with a folder. Similarly a database implementation built on top of Postgres and MongoDB might end
+				up in different files or folders.
+			</div>
+		</div>
+
+		<div style="height:40px;width:200px; margin:2rem auto">
+			--- 我是分隔線 ---
+		</div>
+		<!-- No collapsible--expanded class: hide the content -->
+		<div class="collapsible">
+			<header class="collapsible__header">
+				<h2 class="collapsible__heading">Hide the content</h2>
+				<svg class="icon icon--white collapsible__toggler">
+					<use xlink:href="../images/sprite.svg#chevron"></use>
+				</svg>
+			</header>
+			<div class="collapsible__content">
+				Separating things by dependency often makes it easier to do compilation where you don’t pull in a particular
+				dependency. Similarly, separating by dependency allows you to focus more on the “abstraction” that the different
+				dependencies need to implement.
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

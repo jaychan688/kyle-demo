@@ -1,0 +1,43 @@
+@import '../../css/_base/_global.css';
+@import '../../css/_base/_wrapper.css';
+
+body {
+	background-color: #dcdcdc;
+	padding: 1rem;
+	margin: 0;
+}
+
+.card {
+	border: 1px solid black;
+	margin-bottom: 1rem;
+	background-color: white;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.card-header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid black;
+	padding: 0.5rem;
+	font-size: 2rem;
+	align-items: center;
+	margin-bottom: -1px;
+
+	button {
+		cursor: pointer;
+	}
+}
+
+.card-body {
+	padding: 0 0.5rem;
+	height: 0;
+	overflow: hidden;
+
+	&.show {
+		height: auto;
+		padding: 0.5rem;
+	}
+}
