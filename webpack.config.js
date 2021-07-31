@@ -75,11 +75,18 @@ if (isProduction) {
 	config.output = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: '[name].[chunkhash].js',
-		chunkFilename: '[name].[chunkhash].js',
 	}
 
 	config.optimization = {
-		splitChunks: { chunks: 'all' },
+		splitChunks: {
+			cacheGroups: {
+				commons: {
+					test: /[\/]node_modules[\/]/,
+					name: 'vendors',
+					chunks: 'all',
+				},
+			},
+		},
 	}
 
 	config.plugins.push(

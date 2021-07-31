@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // Simplifies creation of HTML files to serve your bundles
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const { mapPlugins, mapEntries } = require('./shoping-cart-config.js')
 /***************** Entry and Plugins Config file ****************/
 /**
  * entry key 設定為 `${folder}/index`, 輸出index.js檔到 folder 資料夾
@@ -17,7 +18,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
  * 這裡我用 `${folder}/index`,所以全部取名為 index, 也可以用${folder}取代
  */
 
-// Copy images folder
+// Copy images
 class RunAfterCompile {
 	apply(compiler) {
 		compiler.hooks.done.tap('Copy images', () => {
@@ -30,35 +31,14 @@ class RunAfterCompile {
 const demoPath = './src/pages'
 const folders = fse.readdirSync(demoPath)
 
-const generateEntries = pageArray => {
-	return pageArray.reduce((entry, folder) => {
-		entry[`${folder}/index`] = `${demoPath}/${folder}/script.js`
-		return entry
-	}, {})
-}
-
-const generateHtmlPlugin = page => {
-	// Factory pattern
-	return new HtmlWebpackPlugin({
-		title: page,
-		filename: `${page.toLowerCase()}/index.html`,
-		template: `${demoPath}/${page.toLowerCase()}/index.html`,
-		inject: true,
-		chunks: [`${page}/index`],
-	})
-}
-
-const populateHtmlPlugins = pageArray =>
-	pageArray.map(page => generateHtmlPlugin(page))
-
 let entries = generateEntries(folders)
-
-entries = { ...entries, index: './src/index.js' }
+entries = { ...entries, ...mapEntries, index: './src/index' }
 
 const htmlPlugins = populateHtmlPlugins(folders)
 
 const plugins = [
 	new CleanWebpackPlugin(),
+	...mapPlugins,
 	...htmlPlugins,
 	new HtmlWebpackPlugin({
 		template: `./src/index.html`,
@@ -68,6 +48,27 @@ const plugins = [
 	}),
 	new RunAfterCompile(),
 ]
+
+function generateEntries(pageArray) {
+	return pageArray.reduce((entry, folder) => {
+		entry[`${folder}/index`] = `${demoPath}/${folder}/script`
+		return entry
+	}, {})
+}
+
+function populateHtmlPlugins(pageArray) {
+	return pageArray.map(page => generateHtmlPlugin(page))
+}
+
+function generateHtmlPlugin(page) {
+	// Factory pattern
+	return new HtmlWebpackPlugin({
+		filename: `${page.toLowerCase()}/index.html`,
+		template: `${demoPath}/${page.toLowerCase()}/index.html`,
+		inject: true,
+		chunks: [`${page}/index`],
+	})
+}
 
 module.exports = {
 	entries,
