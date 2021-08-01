@@ -40,6 +40,7 @@ const config = {
 	},
 
 	resolve: {
+		// 省略副檔名
 		extensions: ['.js', '.jsx'],
 	},
 }

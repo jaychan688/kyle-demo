@@ -8,8 +8,8 @@ const components = [
 	'quiz',
 	'collapse-expand',
 	'collapsible-mosh',
-	'shopping-cart',
 	'date-picker',
+	'shopping-cart',
 ]
 
 const componentsLinks = components
