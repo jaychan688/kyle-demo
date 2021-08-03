@@ -9,6 +9,11 @@ const {
 	shopCartEntries,
 	shopCartPlugins,
 } = require('./src/multi-pages/shoping-cart-config.js')
+const {
+	formValidationEntries,
+	formValidationPlugins,
+} = require('./src/multi-pages/form-validation.config.js')
+
 /***************** Entry and Plugins Config file ****************/
 
 /**
@@ -28,13 +33,19 @@ const demoPath = './src/pages'
 const folders = fse.readdirSync(demoPath)
 
 let entries = generateEntries(folders)
-entries = { ...entries, ...shopCartEntries, index: './src/index' }
+entries = {
+	...entries,
+	...shopCartEntries,
+	...formValidationEntries,
+	index: './src/index',
+}
 
 const htmlPlugins = populateHtmlPlugins(folders)
 
 const plugins = [
 	new CleanWebpackPlugin(),
 	...shopCartPlugins,
+	...formValidationPlugins,
 	...htmlPlugins,
 	new HtmlWebpackPlugin({
 		template: `./src/index.html`,
