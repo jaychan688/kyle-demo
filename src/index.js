@@ -1,6 +1,6 @@
-import './index.css'
+import './style.css'
 
-const components = [
+const pages = [
 	'simple-list',
 	'advanced-todo-list',
 	'modal',
@@ -9,19 +9,26 @@ const components = [
 	'collapse-expand',
 	'collapsible-mosh',
 	'date-picker',
-	'shopping-cart',
 ]
 
-const componentsLinks = components
+const multiPages = ['shopping-cart', 'form-validation']
+
+const pagesLinks = pages
 	.map(
-		components =>
-			`<li><a class="list__item" target="_blank" href="${components}/index.html">${components}</a></li>`
+		page =>
+			`<li><a class="list__item" target="_blank" href="${page}/index.html">${page}</a></li>`
 	)
 	.join('')
 
-document
-	.querySelector('#root')
-	.insertAdjacentHTML(
-		'beforeend',
-		`<ul class="list list--green">${componentsLinks}</ul>`
+const multiPageLinks = multiPages
+	.map(
+		page =>
+			`<li><a class="list__item" target="_blank" href="${page}/index.html">${page}</a></li>`
 	)
+	.join('')
+
+document.querySelector('#root').insertAdjacentHTML(
+	'beforeend',
+	`<ul class="list list--green">${pagesLinks}</ul>
+	<ul class="list list--pink">${multiPageLinks}</ul>`
+)
