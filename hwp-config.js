@@ -4,7 +4,6 @@ const fse = require('fs-extra')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // Simplifies creation of HTML files to serve your bundles
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
 const {
 	shopCartEntries,
 	shopCartPlugins,
@@ -27,6 +26,15 @@ const {
  * 	filename: [name].[chunkhash].css, 將 index.css 放在同資料夾下
  * output 跟 MiniCssExtractPlugin的 filename: [name]會複製成 entry key,
  */
+
+// Copy images folder
+class RunAfterCompile {
+	apply(compiler) {
+		compiler.hooks.done.tap('Copy images', () => {
+			fse.copySync('./src/images', './dist/images')
+		})
+	}
+}
 
 // 讀取 ./src/pages 內所有的資料夾名稱
 const demoPath = './src/pages'
@@ -53,9 +61,7 @@ const plugins = [
 		inject: true,
 		chunks: ['index'],
 	}),
-	new CopyPlugin({
-		patterns: [{ from: 'src/images', to: 'images' }],
-	}),
+	new RunAfterCompile(),
 ]
 
 function generateEntries(pageArray) {

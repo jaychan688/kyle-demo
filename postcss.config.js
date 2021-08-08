@@ -5,12 +5,10 @@ const postcssConfig = {
 		require('postcss-simple-vars')({
 			variables: require('./src/css/_base/variables.json'),
 		}),
-		require('postcss-css-variables'),
 		require('postcss-color-function'),
 		require('postcss-hexrgba'),
 		require('postcss-mixins'),
 		require('postcss-nested'),
-
 		require('postcss-preset-env')({
 			browsers: 'last 2 versions',
 			stage: 3,

@@ -13,9 +13,10 @@ body {
 	list-style: none;
 	gap: 1rem;
 	flex-wrap: wrap;
+	border-bottom: 3px dotted $blue-grey-600;
 
-	&:nth-child(1) {
-		border-bottom: 5px dotted #000;
+	&:last-child {
+		border-bottom: none;
 	}
 
 	&__item {
@@ -27,7 +28,7 @@ body {
 		font-weight: bold;
 		font-size: 1.5rem;
 		color: #ffffff;
-		transition: background color 0.3s;
+		transition: all 0.3s;
 
 		&:hover {
 			color: #000;
@@ -35,11 +36,14 @@ body {
 		}
 	}
 
-	&--pink {
+	&--bg-pink {
 		background: lightpink;
 	}
+	&--bg-amber {
+		background: $amber-300;
+	}
 
-	&--green {
+	&--bg-green {
 		background: $green-400;
 	}
 }

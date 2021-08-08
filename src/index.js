@@ -10,25 +10,27 @@ const pages = [
 	'collapsible-mosh',
 	'date-picker',
 ]
-
+const advancedPages = ['minesweeper', 'math-solver']
 const multiPages = ['shopping-cart', 'form-validation']
 
-const pagesLinks = pages
-	.map(
-		page =>
-			`<li><a class="list__item" target="_blank" href="${page}/index.html">${page}</a></li>`
-	)
-	.join('')
+function renderList(pages) {
+	return pages
+		.map(
+			page =>
+				`<li><a class="list__item" target="_blank" href="${page}/index.html">${page}</a></li>`
+		)
+		.join('')
+}
 
-const multiPageLinks = multiPages
-	.map(
-		page =>
-			`<li><a class="list__item" target="_blank" href="${page}/index.html">${page}</a></li>`
-	)
-	.join('')
+const pagesLinks = renderList(pages)
+
+const advancedPagesLink = renderList(advancedPages)
+
+const multiPageLinks = renderList(multiPages)
 
 document.querySelector('#root').insertAdjacentHTML(
 	'beforeend',
-	`<ul class="list list--green">${pagesLinks}</ul>
-	<ul class="list list--pink">${multiPageLinks}</ul>`
+	`<ul class="list list--bg-green">${pagesLinks}</ul>
+	<ul class="list list--bg-amber">${advancedPagesLink}</ul>
+	<ul class="list list--bg-pink">${multiPageLinks}</ul>`
 )
