@@ -22,7 +22,6 @@
 		"html-webpack-plugin": "^5.3.2",
 		"mini-css-extract-plugin": "^2.1.0",
 		"postcss": "^8.3.6",
-		"postcss-color-function": "^4.1.0",
 		"postcss-hexrgba": "^2.0.1",
 		"postcss-import": "^14.0.2",
 		"postcss-loader": "^6.1.1",

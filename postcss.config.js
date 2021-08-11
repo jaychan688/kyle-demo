@@ -5,7 +5,6 @@ const postcssConfig = {
 		require('postcss-simple-vars')({
 			variables: require('./src/css/_base/variables.json'),
 		}),
-		require('postcss-color-function'),
 		require('postcss-hexrgba'),
 		require('postcss-mixins'),
 		require('postcss-nested'),
