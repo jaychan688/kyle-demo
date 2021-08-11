@@ -1,10 +1,10 @@
 import './style.css'
 
-const collapsibles = document.querySelectorAll('.collapsible')
+const collapsible = document.querySelectorAll('.collapsible')
 
-collapsibles.forEach(item =>
-	// item call the event listener, this refer to item
-	item.addEventListener('click', function () {
-		this.classList.toggle('collapsible--expanded')
-	})
+collapsible.forEach(item =>
+  // item call the event listener, this refer to item
+  item.addEventListener('click', function () {
+    this.classList.toggle('collapsible--expanded')
+  })
 )

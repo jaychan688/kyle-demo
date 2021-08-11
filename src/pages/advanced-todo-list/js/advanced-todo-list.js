@@ -26,7 +26,7 @@ list.addEventListener('change', e => {
 
 // ~4: Delete Todos
 list.addEventListener('click', e => {
-	if (!e.target.matches('[data-button-delete')) return
+	if (!e.target.matches('[data-button-delete]')) return
 
 	// get the todo that is clicked on
 	const parent = e.target.closest('.list-item')
@@ -53,7 +53,7 @@ form.addEventListener('submit', e => {
 	const newTodo = {
 		name: todoName,
 		complete: false,
-		// string of million second since certian day in the past
+		// string of million second since certain day in the past
 		id: new Date().valueOf().toString(),
 	}
 
